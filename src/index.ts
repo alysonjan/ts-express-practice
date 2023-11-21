@@ -8,8 +8,7 @@ import router from './router';
 import mongoose from 'mongoose';
 
 import * as dotenv from "dotenv";
-dotenv.config({ path: __dirname+'/.env' });
-
+dotenv.config({ path: __dirname+'/../.env' });
 const app = express();
 app.use(cors({
   credentials: true,
