@@ -4,12 +4,13 @@ import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import compression from 'compression';
 import cors from 'cors';
-
 import router from './router';
 import mongoose from 'mongoose';
 
-const app = express();
+import * as dotenv from "dotenv";
+dotenv.config({ path: __dirname+'/.env' });
 
+const app = express();
 app.use(cors({
   credentials: true,
 }));
@@ -24,7 +25,7 @@ server.listen(8080, () => {
   console.log('Server running on http://localhost:8080');
 });
 
-const MONGO_URL = 'mongodb+srv://alysonjan:admin@ts-express-training-db.hphyqou.mongodb.net/'; // DB URI
+const MONGO_URL = process.env.MONGO; // DB URI
 
 mongoose.set("strictQuery", false);
 
